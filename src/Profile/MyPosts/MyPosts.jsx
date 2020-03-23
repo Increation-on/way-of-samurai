@@ -3,11 +3,16 @@ import cl from './MyPosts.module.css';
 import Post from './Post';
 
 const MyPosts = () => {
+
   let postData = [
-    {message: "message1", id: 1, likesCount: 15},
-    {message: "message2", id: 2, likesCount: 20},
-    {message: "message3", id: 3, likesCount: 26}
- ]
+    { message: "message1", id: 1, likesCount: 15 },
+    { message: "message2", id: 2, likesCount: 20 },
+    { message: "message3", id: 3, likesCount: 26 }
+  ];
+
+  let postsElement = postData.map((el) => {
+    return <Post message={el.message} likesCount={el.likesCount} />
+  })
 
   return (
     <div className={cl.posts_wrapper}>
@@ -17,9 +22,7 @@ const MyPosts = () => {
         <button>Add post</button>
       </div>
       <div className={cl.posts_item}>
-        <Post message={postData[0].message} likesCount={postData[0].likesCount} />
-        <Post message={postData[1].message} likesCount={postData[1].likesCount} />
-        <Post message={postData[2].message} likesCount={postData[2].likesCount} />
+        {postsElement}
       </div>
     </div>);
 }
