@@ -3,8 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
+import state from './Redux/State';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+ReactDOM.render(
+    <BrowserRouter>
+        <App state={state} />
+    </BrowserRouter>,
+    document.getElementById('root'));
 
 
 serviceWorker.unregister();
