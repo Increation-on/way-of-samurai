@@ -33,7 +33,9 @@ const Dialogs = (props) => {
                     value = {props.state.dialogsPage.newMessageText} 
                     placeholder="Enter your message"
                     onChange={onMessageAreaChange}/>
-                <button onClick={sendMessage}>send</button>
+                <button 
+                    
+                    onClick={sendMessage}>send</button>
                 {messagesElements}
             </div>
         </div>
