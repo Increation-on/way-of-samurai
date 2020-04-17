@@ -6,7 +6,7 @@ import {addPostActionCreator, updateNewPostActionCreator} from '../../../Redux/S
 
 const MyPosts = (props) => {
 
-  let postsElement = props.postData.map((el) => {
+  let postsElement = props.state.profilePage.postData.map((el) => {
     return <Post message={el.message} likesCount={el.likesCount} />
   })
 
@@ -16,8 +16,7 @@ const MyPosts = (props) => {
 
   let onPostChange = (e) => {
     let text = e.currentTarget.value;
-    let action = updateNewPostActionCreator(text)
-    props.dispatch(action);
+    props.dispatch(updateNewPostActionCreator(text));
   }
 
 
@@ -25,7 +24,9 @@ const MyPosts = (props) => {
     <div className={cl.posts_wrapper}>
       <h3>My posts</h3>
       <div className={cl.posts}>
-        <textarea  onChange={onPostChange} value={props.state.profilePage.newPostText}/>
+        <textarea  
+          onChange={onPostChange} 
+          value={props.state.profilePage.newPostText}/>
         <button onClick={addPost}>Add post</button>
       </div>
       <div className={cl.posts_item}>
