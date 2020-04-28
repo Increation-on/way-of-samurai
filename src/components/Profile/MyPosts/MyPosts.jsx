@@ -3,7 +3,7 @@ import cl from './MyPosts.module.css';
 import Post from './Post';
 
 const MyPosts = (props) => {
-
+  
   let postsElement = props.postData.map((el) => {
     return <Post message={el.message} likesCount={el.likesCount} />
   })
