@@ -1,4 +1,5 @@
 import * as axios from 'axios'
+import { unfollow } from '../Redux/UsersReducer';
 
 
 const axiosInstance = axios.create({
@@ -14,6 +15,12 @@ export const usersAPI = {
         return  axiosInstance.get(`users?page=${currentPage}&count=${pageSize}`).then(response =>{
             return response.data
         });
+    },
+    follow(userId){
+       return axiosInstance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId.id}`)
+    },
+    unfollow(userId){
+       return axiosInstance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId.id}`)
     }
 }
 
