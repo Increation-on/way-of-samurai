@@ -123,7 +123,6 @@ export const follow = (userId) => {
 }
 
 export const unfollow = (userId) => {
-    debugger
     return (dispatch) => {
         debugger
         dispatch(toggleFollowingProgress(true, userId));
