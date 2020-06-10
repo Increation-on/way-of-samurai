@@ -47,5 +47,5 @@ export default connect(mapStateToProps, { getUsersProfile })(withUrlDataContaine
 export default compose(
   connect(mapStateToProps, { getUsersProfile }),
   withRouter,
-  withAuthRedirect
+  //withAuthRedirect
 )(ProfileContainer);
